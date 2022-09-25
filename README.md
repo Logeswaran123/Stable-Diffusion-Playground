@@ -17,4 +17,4 @@ An application that generates images or videos using Stable Diffusion models.
 ** TODO **
 
 ## References :page_facing_up:
-** TODO **
+* [Hugging face diffuser](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion)
