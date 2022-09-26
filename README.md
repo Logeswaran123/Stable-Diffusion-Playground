@@ -18,3 +18,4 @@ An application that generates images or videos using Stable Diffusion models.
 
 ## References :page_facing_up:
 * [Hugging face diffuser](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion)
+* [Gist by Andrej Karpathy](https://gist.github.com/karpathy/00103b0037c5aaea32fe1da1af553355)
