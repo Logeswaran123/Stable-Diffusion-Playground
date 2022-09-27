@@ -14,11 +14,6 @@ pip install -r requirements.txt
 ```
 
 ## How to run :running_man:
-There are three different modes of running the application, <br />
-* Text to Image (txt2img)
-* Image to Image (img2img)
-* Inpaint (inpaint)
-* Dream (dream)
 
 <b> Command line arguments: </b>
 | Argument         | Requirement   | Default | Choices                       | Description  |
@@ -29,6 +24,12 @@ There are three different modes of running the application, <br />
 | --num / -n       | False         | 1       | integer number                | Number of images to generate. |
 | --save / -s      | False         | False   | True / False                  | If argument is provided, save generated images. |
 | --limit / -limit | False         | True    | True / False                  | If argument is provided, limit memory usage. |
+
+There are three different modes of running the application, <br />
+* Text to Image (txt2img)
+* Image to Image (img2img)
+* Inpaint (inpaint)
+* Dream (dream)
 
 <b> Mode: Text to Image </b> <br />
 ```python
@@ -45,8 +46,31 @@ python run.py --mode img2img --device gpu --save
 python run.py --mode dream --device gpu --save --num 100
 ```
 
+Note: <br />
+For each of the modes, run the command and follow the cli to provide hugging face user token, prompt and size (Height, Width) of image. <br />
+Dream mode will generate --num images, and create a video. <br />
+Images/Video will be saved to $PWD/images dir.
+
 ## Results :bar_chart:
-** TODO **
+```python
+python run.py --mode dream --device gpu --num 780 --limit --save
+```
+CLI inputs: <br />
+```python
+Enter Hugging face user access token: <user access token>
+
+Loading model...
+
+Model loaded successfully
+
+Enter prompt: highly detailed bowl of lucrative ramen, stephen bliss, unreal engine, fantasy art by greg rutkowski, loish, rhads and lois van baarle, ilya kuvshinov, rossdraws, tom bagshaw, alphonse mucha, global illumination, detailed and intricate environment
+
+Enter height and width of image: 512 512
+
+Dreaming...
+```
+
+https://user-images.githubusercontent.com/36563521/192521369-32673804-009f-44c6-918c-a7746cc94dba.mp4
 
 ## References :page_facing_up:
 * [Hugging face diffuser](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion)
