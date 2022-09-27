@@ -94,7 +94,14 @@ Running Image to Image generation...
 |![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/flower.png)|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/img2img_1.png)|
 
 ---
+<p align="center"> :star: <b> Inpaint </b> :star: </p>
 
+```python
+python run.py --mode inpaint --device gpu --num 1 --limit --save
+```
+** TODO **
+
+---
 <p align="center"> :star: <b> Dream </b> :star: </p>
 
 ```python
