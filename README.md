@@ -47,9 +47,10 @@ python run.py --mode dream --device gpu --save --num 100
 ```
 
 Note: <br />
-For each of the modes, run the command and follow the cli to provide hugging face user token, prompt and size (Height, Width) of image. <br />
-Dream mode will generate --num images, and create a video. <br />
-Images/Video will be saved to $PWD/images dir.
+* For each of the modes, run the command and follow the cli to provide hugging face user token, prompt and size (Height, Width) of image. <br />
+* For hugging face Access Tokens, create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Creata a access token with read permission. <br />
+* Dream mode will generate --num images, and create a video. <br />
+* Images/Video will be saved to $PWD/images dir.
 
 ## Results :bar_chart:
 <p align="center"> :star: <b> Text to Image </b> :star: </p>
