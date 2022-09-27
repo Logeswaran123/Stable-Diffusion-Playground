@@ -41,6 +41,11 @@ python run.py --mode txt2img --device gpu --save
 python run.py --mode img2img --device gpu --save
 ```
 
+<b> Mode: Inpaint </b> <br />
+```python
+python run.py --mode inpaint --device gpu --save
+```
+
 <b> Mode: Dream </b> <br />
 ```python
 python run.py --mode dream --device gpu --save --num <number of frames>
