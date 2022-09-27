@@ -58,6 +58,10 @@ Images/Video will be saved to $PWD/images dir.
 python run.py --mode txt2img --device gpu --num 1 --limit --save
 ```
 
+|||
+|:-------------------------:|:-------------------------:|
+|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/49.png)|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/3.png)|
+|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/78.png)|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/93.png)|
 ---
 <p align="center"> :star: <b> Image to Image </b> :star: </p>
 
