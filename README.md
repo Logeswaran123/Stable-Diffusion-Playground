@@ -5,7 +5,7 @@ An application that generates images or videos using Stable Diffusion models.
 ** TODO **
 
 ## General Requirements :mage_man:
-* Atleast 4GB of VRAM is required to generate a single 512x512 image.
+* Atleast 6GB of VRAM is required to generate a single 512x512 image.
 * For better image generation, use detailed prompt.
 
 ## Code Requirements :mage_woman:
