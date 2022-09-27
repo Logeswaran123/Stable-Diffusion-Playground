@@ -56,7 +56,7 @@ Note: <br />
 * Images/Video will be saved to $PWD/images dir.
 * Single 512x512 image generation takes ~12 seconds on NVIDIA GeForce RTX 3060 with 6GB VRAM.
 * Dream mode will generate --num image frames based on input prompt, and create a video. <br />
-* Image to Image mode will generate new image from initial image and input prompt. The strength input in CLI will indicate the amount of change from initial image. In range [0, 1]; with 0 indicating no change and 1 indicating complete change from original image.
+* Image to Image mode will generate new image from initial image and input prompt. Inpaint mode will generate the masked part of image from initial image, mask image and input prompt. The strength input in CLI will indicate the amount of change from initial image. In range [0, 1]; with 0 indicating no change and 1 indicating complete change from original image.
 
 <b> Hugging face Access Token: </b><br />
 * Create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Creata a access token with read permission. <br />
@@ -104,7 +104,28 @@ Running Image to Image generation...
 ```python
 python run.py --mode inpaint --device gpu --num 1 --limit --save
 ```
-** TODO **
+CLI inputs: <br />
+```python
+Enter Hugging face user access token: <user access token>
+
+Loading model...
+
+Model loaded successfully
+
+Enter initial image path: rose.png
+
+Enter mask image path: mask_rose.png
+
+Enter prompt: beautiful blue butterfly on a rose, glossy, detailed, sharp, 4k
+
+Enter strength in [0, 1] range: 0.8
+
+Running Inpaint...
+```
+
+| Initial image | Mask | Inpainted image |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/rose.png)|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/mask_rose.png)|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/inpaint_rose.png)|
 
 ---
 <p align="center"> :star: <b> Dream </b> :star: </p>
