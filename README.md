@@ -43,7 +43,7 @@ python run.py --mode img2img --device gpu --save
 
 <b> Mode: Dream </b> <br />
 ```python
-python run.py --mode dream --device gpu --save --num 100
+python run.py --mode dream --device gpu --save --num <number of frames>
 ```
 
 Note: <br />
@@ -70,6 +70,25 @@ python run.py --mode txt2img --device gpu --num 1 --limit --save
 ```python
 python run.py --mode img2img --device gpu --num 1 --limit --save
 ```
+CLI inputs: <br />
+```python
+Enter Hugging face user access token: <user access token>
+
+Loading model...
+
+Model loaded successfully
+
+Enter initial image path: flower.png
+
+Enter prompt: beautiful red flower, vibrant, realistic, smooth, bokeh, highly detailed, 4k
+
+Enter strength in [0, 1] range: 0.8
+
+Running Image to Image generation...
+```
+|||
+|:-------------------------:|:-------------------------:|
+|||
 
 ---
 
