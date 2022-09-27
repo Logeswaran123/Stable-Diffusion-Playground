@@ -48,11 +48,13 @@ python run.py --mode dream --device gpu --save --num <number of frames>
 
 Note: <br />
 * For each of the modes, run the command and follow the cli to provide hugging face user token, prompt and size (Height, Width) of image. <br />
-* For hugging face Access Tokens, create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Creata a access token with read permission. <br />
 * Images/Video will be saved to $PWD/images dir.
 * Single 512x512 image generation takes ~12 seconds on NVIDIA GeForce RTX 3060 with 6GB VRAM.
 * Dream mode will generate --num image frames based on input prompt, and create a video. <br />
 * Image to Image mode will generate new image from initial image and input prompt. The strength input in CLI will indicate the amount of change from initial image. In range [0, 1]; with 0 indicating no change and 1 indicating complete change from original image.
+
+<b> Hugging face Access Token: </b><br />
+* Create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Creata a access token with read permission. <br />
 
 ## Results :bar_chart:
 <p align="center"> :star: <b> Text to Image </b> :star: </p>
