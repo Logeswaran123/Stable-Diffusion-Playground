@@ -51,6 +51,7 @@ Note: <br />
 * For hugging face Access Tokens, create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Creata a access token with read permission. <br />
 * Dream mode will generate --num image frames, and create a video. <br />
 * Images/Video will be saved to $PWD/images dir.
+* Single 512x512 image generation takes ~12 seconds on NVIDIA GeForce RTX 3060 with 6GB VRAM.
 
 ## Results :bar_chart:
 <p align="center"> :star: <b> Text to Image </b> :star: </p>
