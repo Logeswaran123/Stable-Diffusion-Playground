@@ -92,7 +92,7 @@ class StableDiffusionPipe():
         images = []
         if use_limited_mem:
             prompts = [prompt]
-            for _ in range (1, 26):
+            for _ in range (1, num_images + 1):
                 print("\nRunning Text to Image generation...")
                 with autocast(self.device):
                     images.append(pipe(prompt=prompts, height=height, width=width).images[0])
@@ -139,7 +139,7 @@ class StableDiffusionPipe():
         images = []
         if use_limited_mem:
             prompts = [prompt]
-            for _ in range (1, 26):
+            for _ in range (1, num_images + 1):
                 print("\nRunning Image to Image generation...")
                 with autocast(self.device):
                     images.append(pipe(prompt=prompts, init_image=init_image, strength=strength).images[0])
