@@ -12,7 +12,8 @@ if __name__ == '__main__':
                                         help="Save generated image")
     parser.add_argument('-d', "--device", required=False, default="cpu", choices=["cpu", "gpu"],
                                         help="cpu or gpu device", type=str)
-    parser.add_argument('-m', "--mode", required=True, default="txt2img", choices=["txt2img", "img2img", "dream"],
+    parser.add_argument('-m', "--mode", required=True, default="txt2img",
+                                        choices=["txt2img", "img2img", "inpaint", "dream"],
                                         help="Select the mode", type=str)
     parser.add_argument('-limit', "--limit", required=False, action='store_true', default=True,
                                         help="Limited memory usage")
@@ -31,6 +32,8 @@ if __name__ == '__main__':
         pipe.TexttoImage(num_images, save_images, limit)
     elif mode.lower() == "img2img":
         pipe.ImagetoImage(num_images, save_images, limit)
+    elif mode.lower() == "inpaint":
+        pipe.Inpaint(num_images, save_images, limit)
     elif mode.lower() == "dream":
         pipe.Dream(num_images, save_images)
     else:

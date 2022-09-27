@@ -1,13 +1,14 @@
-import os
+import imp
+from operator import imod
 import numpy as np
-import cv2
 from PIL import Image
 import torch
 from torch import autocast
-from diffusers.schedulers import DDIMScheduler, LMSDiscreteScheduler, PNDMScheduler
-from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline
+from diffusers.schedulers import LMSDiscreteScheduler
+from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline, StableDiffusionInpaintPipeline
 
-FPS = 24
+from .utility import save_images, save_video, slerp
+
 
 class StableDiffusionPipe():
     """ Pipline for Stable Diffusion model applications """
@@ -15,50 +16,7 @@ class StableDiffusionPipe():
         self.use_local_model = use_local_model
         self.device = device if device == "cpu" else "cuda"
 
-    def slerp(self, t, v0, v1, DOT_THRESHOLD=0.9995):
-        """ helper function to spherically interpolate two arrays v1 v2 """
-
-        if not isinstance(v0, np.ndarray):
-            inputs_are_torch = True
-            input_device = v0.device
-            v0 = v0.cpu().numpy()
-            v1 = v1.cpu().numpy()
-
-        dot = np.sum(v0 * v1 / (np.linalg.norm(v0) * np.linalg.norm(v1)))
-        if np.abs(dot) > DOT_THRESHOLD:
-            v2 = (1 - t) * v0 + t * v1
-        else:
-            theta_0 = np.arccos(dot)
-            sin_theta_0 = np.sin(theta_0)
-            theta_t = theta_0 * t
-            sin_theta_t = np.sin(theta_t)
-            s0 = np.sin(theta_0 - theta_t) / sin_theta_0
-            s1 = sin_theta_t / sin_theta_0
-            v2 = s0 * v0 + s1 * v1
-
-        if inputs_are_torch:
-            v2 = torch.from_numpy(v2).to(input_device)
-
-        return v2
-
-    def save_images(self, images):
-        save_dir = os.path.join(os.getcwd(), r'images')
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
-        for i, image in enumerate(images):
-            image.save("images/image_" + str(i) + ".png")
-
-    def save_video(self, images, width, height):
-        out = cv2.VideoWriter("images/output.avi", # video file name
-                                cv2.VideoWriter_fourcc(*'MJPG'), # fourcc format
-                                FPS, # video fps
-                                (width, height) # (frame width, frame height)
-                            )
-        for _, pil_image in enumerate(images):
-            out.write(cv2.cvtColor(np.array(pil_image), cv2.COLOR_RGB2BGR))
-        out.release()
-
-    def TexttoImage(self, num_images: int = 1, save_images: bool = True, use_limited_mem: bool = True):
+    def TexttoImage(self, num_images: int = 1, save: bool = True, use_limited_mem: bool = True):
         """ Text to Image function """        
 
         path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
@@ -102,11 +60,11 @@ class StableDiffusionPipe():
             images = pipe(prompt=prompts, height=height, width=width).images
 
         # Save images
-        if save_images:
+        if save:
             print("Saving images...")
-            self.save_images(images)
+            save_images(images)
 
-    def ImagetoImage(self, num_images: int = 1, save_images: bool = True, use_limited_mem: bool = True):
+    def ImagetoImage(self, num_images: int = 1, save: bool = True, use_limited_mem: bool = True):
         """ Image to Image function """        
 
         path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
@@ -131,7 +89,7 @@ class StableDiffusionPipe():
         prompt = input("\nEnter prompt: ")
         strength = float(input("\nEnter strength in [0, 1] range: "))
         if not 0 <= strength <= 1:
-            print("{} is an invalid strength value. Enter strength in [0, 1] range.".format(strength))
+            raise ValueError("{} is an invalid strength value. Enter strength in [0, 1] range.".format(strength))
 
         init_image = Image.open(image_path).convert("RGB")
         width, height = init_image.size
@@ -148,18 +106,88 @@ class StableDiffusionPipe():
             for _ in range (1, num_images + 1):
                 print("\nRunning Image to Image generation...")
                 with autocast(self.device):
-                    images.append(pipe(prompt=prompts, init_image=init_image, strength=strength).images[0])
+                    images.append(pipe(prompt=prompts,
+                                        init_image=init_image,
+                                        strength=strength).images[0])
         else:
             print("\nRunning Image to Image generation...")
             prompts = [prompt] * num_images
-            images = pipe(prompt=prompts, init_image=init_image, strength=strength).images
+            images = pipe(prompt=prompts,
+                            init_image=init_image,
+                            strength=strength).images
 
         # Save images
-        if save_images:
+        if save:
             print("Saving images...")
-            self.save_images(images)
+            save_images(images)
 
-    def Dream(self, num_images: int = 1, save_images: bool = True):
+    def Inpaint(self, num_images: int = 1, save: bool = True, use_limited_mem: bool = True):
+        """ Inpaint function """        
+
+        path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
+        local_files_only = self.use_local_model
+        use_auth_token = not local_files_only
+
+        # Get access token
+        access_token = False
+        if use_auth_token:
+            access_token = input("\nEnter Hugging face user access token: ")
+
+        # Load the model
+        print("\nLoading model...")
+        pipe = StableDiffusionInpaintPipeline.from_pretrained(path, use_auth_token=access_token, 
+                                    local_files_only=local_files_only,
+                                    torch_dtype=torch.float16, revision='fp16')
+        pipe = pipe.to(self.device)
+        print("\nModel loaded successfully")
+
+        # Get prompt
+        image_path = input("\nEnter initial image path: ")
+        mask_path = input("\nEnter mask image path: ")
+        prompt = input("\nEnter prompt: ")
+        strength = float(input("\nEnter strength in [0, 1] range: "))
+        if not 0 <= strength <= 1:
+            raise ValueError("{} is an invalid strength value. Enter strength in [0, 1] range.".format(strength))
+
+        init_image = Image.open(image_path).convert("RGB")
+        mask_image = Image.open(mask_path).convert("RGB")
+        image_width, image_height = init_image.size
+        mask_width, mask_height = mask_image.size
+
+        if (not image_width == mask_width) or (not image_height == mask_height):
+            raise ValueError("Init image size must match mask image size.")
+
+        # Convert height and width to multiple of 64 for model.
+        image_width = image_width - image_width % 64
+        image_height = image_height - image_height % 64
+        init_image = init_image.resize((image_width, image_height))
+        mask_image = mask_image.resize((image_width, image_height))
+
+        # Generate images
+        images = []
+        if use_limited_mem:
+            prompts = [prompt]
+            for _ in range (1, num_images + 1):
+                print("\nRunning Inpaint...")
+                with autocast(self.device):
+                    images.append(pipe(prompt=prompts,
+                                        init_image=init_image,
+                                        mask_image=mask_image,
+                                        strength=strength).images[0])
+        else:
+            print("\nRunning Inpaint...")
+            prompts = [prompt] * num_images
+            images = pipe(prompt=prompts,
+                            init_image=init_image,
+                            mask_image=mask_image,
+                            strength=strength).images
+
+        # Save images
+        if save:
+            print("Saving images...")
+            save_images(images)
+
+    def Dream(self, num_images: int = 1, save: bool = True):
         """ Dream function """        
 
         path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
@@ -196,7 +224,7 @@ class StableDiffusionPipe():
         images = []
         print("\nDreaming...")
         for _, t in enumerate(np.linspace(0, 1, num_images)):
-            init_latent = self.slerp(float(t), source_latent, target_latent)
+            init_latent = slerp(float(t), source_latent, target_latent)
 
             with autocast("cuda"):
                 image = pipe(prompt, latents=init_latent).images[0]
@@ -204,8 +232,8 @@ class StableDiffusionPipe():
                     images.append(image)
 
          # Save images and video
-        if save_images:
+        if save:
             print("Saving images...")
-            self.save_images(images)
+            save_images(images)
             print("Saving video...")
-            self.save_video(images, width, height)
+            save_video(images, width, height)
