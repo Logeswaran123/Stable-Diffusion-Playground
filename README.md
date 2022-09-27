@@ -52,6 +52,23 @@ Dream mode will generate --num images, and create a video. <br />
 Images/Video will be saved to $PWD/images dir.
 
 ## Results :bar_chart:
+<p align="center"> :star: <b> Text to Image </b> :star: </p>
+
+```python
+python run.py --mode txt2img --device gpu --num 1 --limit --save
+```
+
+---
+<p align="center"> :star: <b> Image to Image </b> :star: </p>
+
+```python
+python run.py --mode img2img --device gpu --num 1 --limit --save
+```
+
+---
+
+<p align="center"> :star: <b> Dream </b> :star: </p>
+
 ```python
 python run.py --mode dream --device gpu --num 780 --limit --save
 ```
@@ -73,7 +90,8 @@ Dreaming...
 https://user-images.githubusercontent.com/36563521/192521369-32673804-009f-44c6-918c-a7746cc94dba.mp4
 
 ## References :page_facing_up:
-* [Hugging face diffuser](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion)
-* [Gist by Andrej Karpathy](https://gist.github.com/karpathy/00103b0037c5aaea32fe1da1af553355)
+* [Hugging face diffuser](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion) for API usage.
+* [Gist](https://gist.github.com/karpathy/00103b0037c5aaea32fe1da1af553355) by Andrej Karpathy.
+* [lexica.art](https://lexica.art/) for cool prompts.
 
 Happy Learning! 😄
