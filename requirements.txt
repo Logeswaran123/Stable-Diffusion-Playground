@@ -1,0 +1,6 @@
+argparse==1.1
+diffusers==0.3.0
+numpy==1.23.3
+opencv-python==4.6.0
+torch==1.12.1
+Pillow==9.0.1

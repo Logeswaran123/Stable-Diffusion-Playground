@@ -1,11 +1,11 @@
-import imp
-from operator import imod
 import numpy as np
 from PIL import Image
 import torch
 from torch import autocast
 from diffusers.schedulers import LMSDiscreteScheduler
-from diffusers import StableDiffusionPipeline, StableDiffusionImg2ImgPipeline, StableDiffusionInpaintPipeline
+from diffusers import StableDiffusionPipeline, \
+                        StableDiffusionImg2ImgPipeline, \
+                        StableDiffusionInpaintPipeline
 
 from .utility import save_images, save_video, slerp
 
@@ -17,7 +17,7 @@ class StableDiffusionPipe():
         self.device = device if device == "cpu" else "cuda"
 
     def TexttoImage(self, num_images: int = 1, save: bool = True, use_limited_mem: bool = True):
-        """ Text to Image function """        
+        """ Text to Image function """
 
         path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
         local_files_only = self.use_local_model
@@ -30,7 +30,7 @@ class StableDiffusionPipe():
 
         # Load the model
         print("\nLoading model...")
-        pipe = StableDiffusionPipeline.from_pretrained(path, use_auth_token=access_token, 
+        pipe = StableDiffusionPipeline.from_pretrained(path, use_auth_token=access_token,
                                     local_files_only=local_files_only,
                                     torch_dtype=torch.float16, revision='fp16')
         pipe = pipe.to(self.device)
@@ -65,7 +65,7 @@ class StableDiffusionPipe():
             save_images(images)
 
     def ImagetoImage(self, num_images: int = 1, save: bool = True, use_limited_mem: bool = True):
-        """ Image to Image function """        
+        """ Image to Image function """
 
         path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
         local_files_only = self.use_local_model
@@ -78,7 +78,7 @@ class StableDiffusionPipe():
 
         # Load the model
         print("\nLoading model...")
-        pipe = StableDiffusionImg2ImgPipeline.from_pretrained(path, use_auth_token=access_token, 
+        pipe = StableDiffusionImg2ImgPipeline.from_pretrained(path, use_auth_token=access_token,
                                     local_files_only=local_files_only,
                                     torch_dtype=torch.float16, revision='fp16')
         pipe = pipe.to(self.device)
@@ -122,7 +122,7 @@ class StableDiffusionPipe():
             save_images(images)
 
     def Inpaint(self, num_images: int = 1, save: bool = True, use_limited_mem: bool = True):
-        """ Inpaint function """        
+        """ Inpaint function """
 
         path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
         local_files_only = self.use_local_model
@@ -135,7 +135,7 @@ class StableDiffusionPipe():
 
         # Load the model
         print("\nLoading model...")
-        pipe = StableDiffusionInpaintPipeline.from_pretrained(path, use_auth_token=access_token, 
+        pipe = StableDiffusionInpaintPipeline.from_pretrained(path, use_auth_token=access_token,
                                     local_files_only=local_files_only,
                                     torch_dtype=torch.float16, revision='fp16')
         pipe = pipe.to(self.device)
@@ -188,7 +188,7 @@ class StableDiffusionPipe():
             save_images(images)
 
     def Dream(self, num_images: int = 1, save: bool = True):
-        """ Dream function """        
+        """ Dream function """
 
         path = "./stable-diffusion-v1-4" if self.use_local_model else "CompVis/stable-diffusion-v1-4"
         local_files_only = self.use_local_model
@@ -202,7 +202,7 @@ class StableDiffusionPipe():
         # Load the model
         print("\nLoading model...")
         lms = LMSDiscreteScheduler(beta_start=0.00085, beta_end=0.012, beta_schedule="scaled_linear")
-        pipe = StableDiffusionPipeline.from_pretrained(path, use_auth_token=access_token, 
+        pipe = StableDiffusionPipeline.from_pretrained(path, use_auth_token=access_token,
                                     local_files_only=local_files_only, scheduler=lms,
                                     torch_dtype=torch.float16, revision='fp16')
         pipe = pipe.to(self.device)
