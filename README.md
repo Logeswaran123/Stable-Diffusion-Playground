@@ -88,7 +88,7 @@ Running Image to Image generation...
 ```
 |||
 |:-------------------------:|:-------------------------:|
-|||
+|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/flower.png)|![](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/images/img2img_1.png)|
 
 ---
 
