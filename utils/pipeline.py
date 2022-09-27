@@ -134,6 +134,12 @@ class StableDiffusionPipe():
             print("{} is an invalid strength value. Enter strength in [0, 1] range.".format(strength))
 
         init_image = Image.open(image_path).convert("RGB")
+        width, height = init_image.size
+
+        # Convert height and width to multiple of 64 for model.
+        width = width - width % 64
+        height = height - height % 64
+        init_image = init_image.resize((width, height))
 
         # Generate images
         images = []
