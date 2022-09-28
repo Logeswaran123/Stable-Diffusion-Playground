@@ -150,6 +150,10 @@ Dreaming...
 
 https://user-images.githubusercontent.com/36563521/192521369-32673804-009f-44c6-918c-a7746cc94dba.mp4
 
+---
+Few of the Text to Image generations compiled into a video, <br />
+** TODO **
+
 ## References :page_facing_up:
 * [Hugging face diffuser](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion) for API usage.
 * [Gist](https://gist.github.com/karpathy/00103b0037c5aaea32fe1da1af553355) by Andrej Karpathy.
