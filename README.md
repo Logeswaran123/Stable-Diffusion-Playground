@@ -155,6 +155,7 @@ Few of the Text to Image generations compiled into a video, <br />
 ** TODO **
 
 ## References :page_facing_up:
+* [stability.ai](https://stability.ai/blog/stable-diffusion-public-release) blog.
 * [Hugging face diffuser](https://github.com/huggingface/diffusers/tree/main/src/diffusers/pipelines/stable_diffusion) for API usage.
 * [Gist](https://gist.github.com/karpathy/00103b0037c5aaea32fe1da1af553355) by Andrej Karpathy.
 * [lexica.art](https://lexica.art/) for cool prompts.
