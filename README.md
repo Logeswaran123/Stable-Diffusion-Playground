@@ -10,7 +10,7 @@ Similar to the definition, diffusion models essentially apply noise to an image 
 
 Most diffusion models use UNet architecture to preserve the dimensionality of the image. Usually, diffusion models apply diffusion in pixel space, but stable diffusion models apply diffusion in latent space. Hence, the term "Latent diffusion model (LDM)". The conversion between pixel space to latent space is done using Encoder and Decoder. This method is memory efficient compared to previous methods, and also produces highly detailed image. <br />
 
-Read through the [paper](https://arxiv.org/abs/2112.10752) for more details. Big-ups to the researchers/creators for the work and open sourcing it. <br />
+Read through the [paper](https://arxiv.org/abs/2112.10752) for more details. Big-ups to the researchers/creators for the work and for open-sourcing it. <br />
 
 ## General Requirements :mage_man:
 * Atleast 6GB of VRAM is required to generate a single 512x512 image.
