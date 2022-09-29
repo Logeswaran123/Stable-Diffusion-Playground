@@ -4,7 +4,7 @@ An application that generates images or videos using Stable Diffusion models.
 ## Description :scroll:
 What is the term "diffusion"? <br />
 
-From Wikipedia,"Diffusion is the net movement of anything (for example, atoms, ions, molecules, energy) generally from a region of higher concentration to a region of lower concentration." <br />
+From Wikipedia, "Diffusion is the net movement of anything (for example, atoms, ions, molecules, energy) generally from a region of higher concentration to a region of lower concentration." <br />
 
 Similar to the definition, diffusion models essentially apply noise to an image sequentially across multiple steps in forward pass. This essentially diffuses the pixels. In the backward pass, the noisy image is denoised across same steps. Since it is a sequential process, there is less chance of mode collapse (a problem with GANs) to occur. <br />
 
