@@ -2,7 +2,13 @@
 An application that generates images or videos using Stable Diffusion models.
 
 ## Description :scroll:
-** TODO **
+What is the term "diffusion"? <br />
+
+From Wikipedia,"Diffusion is the net movement of anything (for example, atoms, ions, molecules, energy) generally from a region of higher concentration to a region of lower concentration." <br />
+
+Similar to the definition, diffusion models essentially apply noise to an image sequentially across multiple steps in forward pass. This essentially diffuses the pixels. In the backward pass, the noisy image is denoised across same steps. Since it is a sequential process, there is less chance of mode collapse (a problem with GANs) to occur. <br />
+
+Most diffusion models use U-Net architecture to preserve the dimensionality of the image. Usually, diffusion models apply diffusion in pixel space, but stable diffusion models apply diffusion in latent space. Hence, the term "Latent diffusion model (LDM)". This method is memory efficient compared to previous methods, and also produces highly detailed images. <br />
 
 ## General Requirements :mage_man:
 * Atleast 6GB of VRAM is required to generate a single 512x512 image.
