@@ -1,4 +1,4 @@
-# Stable-Diffusion-Playground
+# ⛹️‍♀️:basketball: Stable-Diffusion-Playground :soccer:⛹️
 An application that generates images or videos using Stable Diffusion models.
 
 ## Description :scroll:
