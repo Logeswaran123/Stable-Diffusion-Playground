@@ -33,11 +33,12 @@ pip install -r requirements.txt
 | --save / -s      | False         | False   | True / False                  | If argument is provided, save generated images. |
 | --limit / -limit | False         | True    | True / False                  | If argument is provided, limit memory usage. |
 
-There are four different modes of running the application, <br />
+There are five different modes of running the application, <br />
 * Text to Image (txt2img)
 * Image to Image (img2img)
 * Inpaint (inpaint)
 * Dream (dream)
+* <i> TODO: Animate (animate) </i>
 
 <b> Mode: Text to Image </b> <br />
 ```python
