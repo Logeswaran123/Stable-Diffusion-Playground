@@ -8,7 +8,5 @@ pandas==1.4.2
 pytorch-lightning==1.7.4
 scikit-image==0.19.3
 timm==0.6.7
-torch==1.12.1+cu116
-torchvision==0.13.1+cu116
 transformers==4.21.2
 Pillow==9.0.1
