@@ -100,6 +100,7 @@ Animate mode uses configurations specified in ./animation_mode/config.py. Specif
 ```python
 python run.py --mode animate --save
 ```
+Generated video will be saved to ./out_video dir.
 
 ## Results :bar_chart:
 <p align="center"> :star: <b> Text to Image </b> :star: </p>
