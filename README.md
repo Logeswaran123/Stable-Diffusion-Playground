@@ -38,7 +38,7 @@ There are five different modes of running the application, <br />
 * Image to Image (img2img)
 * Inpaint (inpaint)
 * Dream (dream)
-* <i> TODO: Animate (animate) </i>
+* Animate (animate)
 
 <b> Mode: Text to Image </b> <br />
 ```python
@@ -60,6 +60,10 @@ python run.py --mode inpaint --device gpu --save
 python run.py --mode dream --device gpu --save --num <number of frames>
 ```
 
+<b> Mode: Dream </b> <br />
+```python
+python run.py --mode animate --device gpu --save
+```
 Note: <br />
 * For each of the modes, run the command and follow the cli to provide hugging face user token, prompt and size (Height, Width) of image. <br />
 * Images/Video will be saved to $PWD/images dir.
