@@ -76,7 +76,7 @@ Note: <br />
 
 ### How to use Animate mode :paintbrush:
 This implemetation is an optimized version of [DeforumStableDiffusionLocal](https://github.com/HelixNGC7293/DeforumStableDiffusionLocal) and [Deforum_Stable_Diffusion.ipynb](https://colab.research.google.com/github/deforum/stable-diffusion/blob/main/Deforum_Stable_Diffusion.ipynb). Thanks for their work.<br /><br />
-Animate mode is quite different from the other modes of the app. Animate mode can generate "2D" or "3D" videos from input prompts. Also, it can perform Image-to-Image conversion of a "Video Input". <br />
+Animate mode is quite different from the other modes of the app. Animate mode can generate "2D" or "3D" videos from input prompts. Also, it can perform Video-to-Video conversion of a "Video Input" based on input prompts. <br />
 
 To use this mode, follow the below steps, <br />
 
