@@ -75,9 +75,13 @@ Note: <br />
 * Create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Creata a access token with read permission. <br />
 
 ### How to use Animate mode :paintbrush:
-Animate mode is quite different from the other modes of the app. Animate mode can generate 2D or 3D videos from input prompts. Also, it can perform Image-to-Image conversion of a Video Input. To use this mode, follow the below steps,
+Animate mode is quite different from the other modes of the app. Animate mode can generate 2D or 3D videos from input prompts. Also, it can perform Image-to-Image conversion of a Video Input. To use this mode, follow the below steps, <br />
 
-1. ** TODO **
+```python
+cd animation_mode
+pip install -r requirements.txt
+python setup.py
+```
 
 ## Results :bar_chart:
 <p align="center"> :star: <b> Text to Image </b> :star: </p>
