@@ -90,6 +90,7 @@ mkdir models
 mkdir pretrained
 cd animation_mode
 python setup.py
+cd ..
 ```
 
 Next, manually download the models,
