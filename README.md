@@ -19,6 +19,7 @@ Read through the [paper](https://arxiv.org/abs/2112.10752) for more details. Big
 ## Code Requirements :mage_woman:
 ```python
 pip install -r requirements.txt
+python setup.py
 ```
 
 ## How to run :running_man:
