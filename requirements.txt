@@ -1,6 +1,14 @@
 argparse==1.1
 diffusers==0.3.0
-numpy==1.23.3
+einops==0.4.1
+jsonmerge==1.8.0
+numpy==1.22.4
 opencv-python==4.6.0
-torch==1.12.1
+pandas==1.4.2
+pytorch-lightning==1.7.4
+scikit-image==0.19.3
+timm==0.6.7
+torch==1.12.1+cu116
+torchvision==0.13.1+cu116
+transformers==4.21.2
 Pillow==9.0.1
