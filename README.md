@@ -94,7 +94,7 @@ Next, manually download the models,
 * Download [dpt_large-midas-2f21e586.pt](https://github.com/intel-isl/DPT/releases/download/1_0/dpt_large-midas-2f21e586.pt) and place it in ./models dir.
 * Download [AdaBins_nyu.pt](https://cloudflare-ipfs.com/ipfs/Qmd2mMnDLWePKmgfS8m6ntAg4nhV5VkUyAydYBp8cWWeB7/AdaBins_nyu.pt) and place it in ./pretrained dir.
 
-Animate mode uses configurations specified in ./animation_mode/config.py. Specify the configurations for video generation in the file. Refer [animation_mode/README.md](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/animation_mode/README.md) for details on parameters usage in config.py.
+Animate mode uses configurations specified in ./animation_mode/config.py. Specify the configurations for video generation in this file. Refer [animation_mode/README.md](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/animation_mode/README.md) for details on parameters usage in config.py.
 
 #### Run command
 ```python
