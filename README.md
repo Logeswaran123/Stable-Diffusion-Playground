@@ -85,6 +85,7 @@ To use this mode, follow the below steps, <br />
 Clone the repo, and run the following cmds, 
 ```python
 pip install -r requirements.txt
+python setup.py
 mkdir models
 mkdir pretrained
 cd animation_mode
