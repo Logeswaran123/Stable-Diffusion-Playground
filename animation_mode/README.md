@@ -5,6 +5,7 @@ Animate mode can generate "2D" or "3D" videos from input prompts. Also, it can p
 Clone the repo, and run the cmds from Stable-Diffusion-Playground dir.
 ```python
 pip install -r requirements.txt
+python setup.py
 mkdir models
 mkdir pretrained
 cd animation_mode
