@@ -2,7 +2,15 @@
 Animate mode can generate "2D" or "3D" videos from input prompts. Also, it can perform Video-to-Video conversion of a "Video Input" based on input prompts.
 
 ### Run command
-Clone the repo, and run the cmd from Stable-Diffusion-Playground dir.
+Clone the repo, and run the cmds from Stable-Diffusion-Playground dir.
+```python
+pip install -r requirements.txt
+mkdir models
+mkdir pretrained
+cd animation_mode
+python setup.py
+cd ..
+```
 ```python
 python run.py --mode animate --save
 ```
