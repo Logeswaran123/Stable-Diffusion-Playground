@@ -78,8 +78,8 @@ Note: <br />
 Animate mode is quite different from the other modes of the app. Animate mode can generate 2D or 3D videos from input prompts. Also, it can perform Image-to-Image conversion of a Video Input. To use this mode, follow the below steps, <br />
 
 ```python
-cd animation_mode
 pip install -r requirements.txt
+cd animation_mode
 python setup.py
 ```
 
