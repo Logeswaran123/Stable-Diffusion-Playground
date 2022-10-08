@@ -60,7 +60,7 @@ python run.py --mode inpaint --device gpu --save
 python run.py --mode dream --device gpu --save --num <number of frames>
 ```
 
-<b> Mode: Dream </b> <br />
+<b> Mode: Animate </b> <br />
 ```python
 python run.py --mode animate --device gpu --save
 ```
