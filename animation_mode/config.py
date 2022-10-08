@@ -36,17 +36,3 @@ extract_nth_frame=1
 
 animation_prompts={
 	"0":"detailed scroll painting of plants, trees and ocean by hokusai, 8k, sharp!!!",}
-
-# photographic feel, 2D, comic-like, illustrative style
-
-# a ultradetailed beautiful panting by conrad roset, greg rutkowski and makoto shinkai, trending on artstation 
-
-# style of by jordan grimmer and greg rutkowski, crisp lines and color
-
-# ((realistic face shape and relistic hair and details)), Extremely detailed!!! and ((high quality eyes!!!)), and ((high quality hair!!!)) and ((high quality facial hair!!!)) and (Extremely detailed eyes and iris!!!) and clear lips!! and high quality, style of by jordan grimmer and greg rutkowski, crisp lines and color, sharp
-
-# anime portrait cowboy bebop, futuristic science fiction, mucha, hard shadows and strong rim light, art by jc leyendecker and atey ghailan and sachin teng 
-
-# fabulous mysterious forest of magical trees. rays of sun break through foliage and branches of trees. path through thicket of the forest, cinematic view, epic sky, detailed, concept art, low angle, high detail, warm lighting, volumetric, godrays, vivid, beautiful, trending on artstation, by jordan grimmer, huge scene, grass, art greg rutkowski 
-
-# a narrow alley with a sign in the middle of it, cyberpunk art by pan tianshou, cgsociety contest winner, shin hanga, unreal engine 5, rendered in unreal engine, world captured through photogrammetry and dissolved with real - time vfx 
