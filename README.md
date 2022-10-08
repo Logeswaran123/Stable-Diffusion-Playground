@@ -26,7 +26,7 @@ pip install -r requirements.txt
 <b> Command line arguments: </b>
 | Argument         | Requirement   | Default | Choices                       | Description  |
 | ---------------- |:-------------:|:-------:|:-----------------------------:| :------------|
-| --mode / -m      | True          | -       | "txt2img", "img2img", "dream" | Mode of application. |
+| --mode / -m      | True          | -       | "txt2img", "img2img", "inpaint", "dream", "animate" | Mode of application. |
 | --local / -l     | False         | False   | True / False                  | If argument is provided, use local model files. Else download from hugging face. |
 | --device / -d    | False         | "cpu"   | "cpu", "gpu"                  | Run on target device. |
 | --num / -n       | False         | 1       | integer number                | Number of images to generate. |
