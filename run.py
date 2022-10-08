@@ -13,7 +13,7 @@ if __name__ == '__main__':
     parser.add_argument('-d', "--device", required=False, default="cpu", choices=["cpu", "gpu"],
                                         help="cpu or gpu device", type=str)
     parser.add_argument('-m', "--mode", required=True, default="txt2img",
-                                        choices=["txt2img", "img2img", "inpaint", "dream"],
+                                        choices=["txt2img", "img2img", "inpaint", "dream", "animate"],
                                         help="Select the mode", type=str)
     parser.add_argument('-limit', "--limit", required=False, action='store_true', default=True,
                                         help="Limited memory usage")
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     num_images = args.num
     is_local_model = args.local
-    save_images = args.save
+    save = args.save
     device = args.device
     mode = args.mode
     limit = args.limit
@@ -29,12 +29,14 @@ if __name__ == '__main__':
     pipe = StableDiffusionPipe(is_local_model, device)
 
     if mode.lower() == "txt2img":
-        pipe.TexttoImage(num_images, save_images, limit)
+        pipe.TexttoImage(num_images, save, limit)
     elif mode.lower() == "img2img":
-        pipe.ImagetoImage(num_images, save_images, limit)
+        pipe.ImagetoImage(num_images, save, limit)
     elif mode.lower() == "inpaint":
-        pipe.Inpaint(num_images, save_images, limit)
+        pipe.Inpaint(num_images, save, limit)
     elif mode.lower() == "dream":
-        pipe.Dream(num_images, save_images)
+        pipe.Dream(num_images, save)
+    elif mode.lower() == "animate":
+        pipe.Animate(save)
     else:
-        print("\n {} is an invalide mode. Select a valid mode.".format(mode))
+        print(f"\n {mode} is an invalide mode. Select a valid mode.")

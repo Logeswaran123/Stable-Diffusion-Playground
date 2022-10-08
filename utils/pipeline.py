@@ -8,7 +8,7 @@ from diffusers import StableDiffusionPipeline, \
                         StableDiffusionInpaintPipeline
 
 from .utility import save_images, save_video, slerp
-
+from animation_mode.animation import animate
 
 class StableDiffusionPipe():
     """ Pipline for Stable Diffusion model applications """
@@ -237,3 +237,9 @@ class StableDiffusionPipe():
             save_images(images)
             print("Saving video...")
             save_video(images, width, height)
+
+    def Animate(self, save: bool = True):
+        """ Animate function """
+        print("\nUsing configurations from animation_mode/config.py")
+        animate(self.use_local_model, save)
+        
