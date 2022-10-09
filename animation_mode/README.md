@@ -31,7 +31,7 @@ Animate mode uses configurations specified in ./animation_mode/config.py. Specif
 | guidance_scale   | Indicates how much output should be linked to prompt | Float number.<br /> Allowed: guidance_scale > 1. |
 | num_inference_steps | Number of denoising steps | Integer number |
 | diffusion_cadence | number of frames to generate between frames | Integer number.<br /> Allowed: > 1 for "2D", "3D" animation_mode |
-| border | Border mode used in image transformation | "warp", "replicate" |
+| border | Border mode used in image transformation | "wrap", "replicate" |
 | angle | Angle of rotation in degrees | String. Format: "frame_id:(value)".<br /> frame_id - integer, value - integer |
 | zoom | Amount of zoom | String. Format: "frame_id:(value)".<br /> frame_id - integer, value - float |
 | translation_x | Amount translation along X-axis | String. Format: "frame_id:(value)".<br /> frame_id - integer, value - float |
