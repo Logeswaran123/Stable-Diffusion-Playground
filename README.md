@@ -202,8 +202,6 @@ https://user-images.githubusercontent.com/36563521/192521369-32673804-009f-44c6-
 | **TODO** | ![boat_in_storm](https://user-images.githubusercontent.com/36563521/194770440-db663425-282c-4aba-8b1a-2fb8db8bd6d0.gif) |
 
 ---
-Few of the Text to Image generations compiled into a video, <br />
-** TODO **
 
 ## References :page_facing_up:
 * [stability.ai](https://stability.ai/blog/stable-diffusion-public-release) blog.
