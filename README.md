@@ -39,7 +39,7 @@ There are five different modes of running the application, <br />
 * Image to Image (img2img)
 * Inpaint (inpaint)
 * Dream (dream)
-* Animate (animate)
+* Animate (animate) - sub-modes: 2D, 3D, Video Input
 
 <b> Mode: Text to Image </b> <br />
 ```python
