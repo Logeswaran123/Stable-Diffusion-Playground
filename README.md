@@ -17,7 +17,7 @@ Read through the [paper](https://arxiv.org/abs/2112.10752) for more details. Big
 * For better image generation, use descriptive and detailed prompt.
 
 ## Code Requirements :mage_woman:
-Use Python 3.8.13. Setup conda environment and run the below commands,
+Use Python 3.8.13. Setup conda environment, clone repo and run the below commands,
 ```python
 pip install -r requirements.txt
 python setup.py
