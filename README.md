@@ -73,7 +73,7 @@ python run.py --mode animate --device gpu --save
 ```
 Note: <br />
 * For each of the modes, run the command and follow the cli to provide hugging face user token, prompt and size (Height, Width) of image. <br />
-* Images/Video will be saved to $PWD/images dir.
+* Generated images/or video will be saved to $PWD/images dir. For animate mode, video will be saved to  $PWD/out_video dir.
 * Single 512x512 image generation takes ~12 seconds on NVIDIA GeForce RTX 3060 with 6GB VRAM.
 * Dream mode will generate --num image frames based on input prompt, and create a video. <br />
 * Image to Image mode will generate new image from initial image and input prompt. Inpaint mode will generate the masked part of image from initial image, mask image and input prompt. The strength input in CLI will indicate the amount of change from initial image. In range [0, 1]; with 0 indicating no change and 1 indicating complete change from original image.
