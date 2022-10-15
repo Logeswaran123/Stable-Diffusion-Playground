@@ -10,7 +10,7 @@ if __name__ == '__main__':
                                         help="local model or download from huggingface")
     parser.add_argument('-s', "--save", required=False, action='store_true', default=False,
                                         help="Save generated image")
-    parser.add_argument('-d', "--device", required=False, default="cpu", choices=["cpu", "gpu"],
+    parser.add_argument('-d', "--device", required=False, default="gpu", choices=["cpu", "gpu"],
                                         help="cpu or gpu device", type=str)
     parser.add_argument('-m', "--mode", required=True, default="txt2img",
                                         choices=["txt2img", "img2img", "inpaint", "dream", "animate"],
