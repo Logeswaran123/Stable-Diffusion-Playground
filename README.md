@@ -20,6 +20,11 @@ Read through the [paper](https://arxiv.org/abs/2112.10752) for more details. Big
 ```python
 pip install -r requirements.txt
 python setup.py
+mkdir models
+mkdir pretrained
+cd animation_mode
+python setup.py
+cd ..
 ```
 
 ## How to run :running_man:
