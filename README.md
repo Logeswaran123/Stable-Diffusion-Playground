@@ -79,7 +79,7 @@ Note: <br />
 * Image to Image mode will generate new image from initial image and input prompt. Inpaint mode will generate the masked part of image from initial image, mask image and input prompt. The strength input in CLI will indicate the amount of change from initial image. In range [0, 1]; with 0 indicating no change and 1 indicating complete change from original image.
 
 <b> Hugging face Access Token: </b><br />
-* Create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Creata a access token with read permission. <br />
+* Create an account in [huggingface.co](https://huggingface.co/). Go to Settings -> Access Tokens. Create an access token with read permission. <br />
 
 ### How to use Animate mode :paintbrush:
 This implemetation is an optimized version of [DeforumStableDiffusionLocal](https://github.com/HelixNGC7293/DeforumStableDiffusionLocal) and [Deforum_Stable_Diffusion.ipynb](https://colab.research.google.com/github/deforum/stable-diffusion/blob/main/Deforum_Stable_Diffusion.ipynb). Thanks for their work.<br /><br />
