@@ -1,4 +1,6 @@
 # ⛹️‍♀️:basketball: Stable-Diffusion-Playground :soccer:⛹️
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Logeswaran123/Stable-Diffusion-Playground/blob/main/LICENSE)
+
 An application that generates images or videos using Stable Diffusion models.
 
 ## Description :scroll:
